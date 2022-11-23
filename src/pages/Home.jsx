@@ -13,7 +13,7 @@ import { fetchPosts } from '../redux/slices/posts'
 export const Home = () => {
   const dispatch = useDispatch()
   const userData = useSelector((state) => state.auth.data)
-  console.log(userData)
+
   const { posts, tags } = useSelector((state) => state.posts)
 
   const isPostLoading = posts.status === 'loading'
