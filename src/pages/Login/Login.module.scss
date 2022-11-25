@@ -1,6 +1,6 @@
 .root {
-  width: 400px;
-  padding: 50px;
+  max-width: 400px;
+  padding: 20px;
   border: 1px solid #dedede;
   margin: 50px auto;
 }
@@ -12,5 +12,17 @@
 .title {
   text-align: center !important;
   font-weight: bold !important;
-  margin-bottom: 30px !important;
+  margin-bottom: 10px !important;
+}
+
+.butLogin {
+  background-color: teal;
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 5px;
+  padding: 12px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  cursor: pointer;
 }

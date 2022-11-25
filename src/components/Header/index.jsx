@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Button from '@mui/material/Button'
+
 import { logout } from '../../redux/slices/auth'
 import styles from './Header.module.scss'
 import Container from '@mui/material/Container'
@@ -30,25 +30,21 @@ export const Header = () => {
               <>
                 {userData?.write && (
                   <Link to="/create">
-                    <Button variant="contained">Create post</Button>
+                    <button className={styles.butSign}>Create</button>
                   </Link>
                 )}
 
-                <Button
-                  onClick={onClickLogout}
-                  variant="contained"
-                  color="error"
-                >
+                <button onClick={onClickLogout} className={styles.butLogout}>
                   Logout
-                </Button>
+                </button>
               </>
             ) : (
               <>
                 <Link to="/login">
-                  <Button variant="outlined">Login</Button>
+                  <button className={styles.butLogin}>Login</button>
                 </Link>
                 <Link to="/register">
-                  <Button variant="contained">Sign in</Button>
+                  <button className={styles.butSign}>Sign in</button>
                 </Link>
               </>
             )}

@@ -23,7 +23,7 @@ export const FullPost = () => {
         console.warn(error)
         alert(`Error! Can't get post!`)
       })
-      .finally((some) => {
+      .finally(() => {
         setIsLoading(false)
       })
   }, [])
@@ -36,7 +36,11 @@ export const FullPost = () => {
       <Post
         id={data._id}
         title={data.title}
-        imageUrl={data.imageUrl ? `${process.env.REACT_APP_API_URL}${data.imageUrl}` : ''}
+        imageUrl={
+          data.imageUrl
+            ? `${process.env.REACT_APP_API_URL}${data.imageUrl}`
+            : ''
+        }
         user={data.user}
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}
@@ -48,17 +52,17 @@ export const FullPost = () => {
         items={[
           {
             user: {
-              fullName: 'Вася Пупкин',
-              avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
+              fullName: '1',
+              avatarUrl: '2',
             },
-            text: 'Это тестовый комментарий 555555',
+            text: '3',
           },
           {
             user: {
-              fullName: 'Иван Иванов',
-              avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
+              fullName: '1',
+              avatarUrl: '2',
             },
-            text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+            text: '3',
           },
         ]}
         isLoading={false}

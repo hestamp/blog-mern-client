@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom'
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Paper from '@mui/material/Paper'
-import Button from '@mui/material/Button'
 import { useForm } from 'react-hook-form'
 import styles from './Login.module.scss'
 import { fetchLogin, selectIsAuth } from '../../redux/slices/auth'
@@ -42,7 +41,7 @@ export const Login = () => {
   return (
     <Paper classes={{ root: styles.root }}>
       <Typography classes={{ root: styles.title }} variant="h5">
-        Вход в аккаунт
+        Login
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
@@ -63,9 +62,9 @@ export const Login = () => {
           error={Boolean(errors.password?.message)}
           fullWidth
         />
-        <Button type="submit" size="large" variant="contained" fullWidth>
+        <button type="submit" className={styles.butLogin}>
           Login
-        </Button>
+        </button>
       </form>
     </Paper>
   )

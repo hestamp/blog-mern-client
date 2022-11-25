@@ -41,7 +41,9 @@ export const Home = () => {
                   key={id}
                   title={one.title}
                   imageUrl={
-                    one.imageUrl ? `${process.env.REACT_APP_API_URL}${one.imageUrl}` : ''
+                    one.imageUrl
+                      ? `${process.env.REACT_APP_API_URL}${one.imageUrl}`
+                      : ''
                   }
                   user={one.user}
                   createdAt={one.createdAt}
@@ -52,24 +54,24 @@ export const Home = () => {
         </Grid>
         {/* <Grid xs={4} item>
           <TagsBlock
-            items={['react', 'typescript', 'заметки']}
+            items={['1', '2', '3']}
             isLoading={false}
           />
           <CommentsBlock
             items={[
               {
                 user: {
-                  fullName: 'Вася Пупкин',
-                  avatarUrl: 'https://mui.com/static/images/avatar/1.jpg',
+                  fullName: '1',
+                  avatarUrl: '2',
                 },
-                text: 'Это тестовый комментарий',
+                text: '3',
               },
               {
                 user: {
-                  fullName: 'Иван Иванов',
-                  avatarUrl: 'https://mui.com/static/images/avatar/2.jpg',
+                  fullName: '4',
+                  avatarUrl: '5',
                 },
-                text: 'When displaying three lines or more, the avatar is not aligned at the top. You should set the prop to align the avatar at the top',
+                text: '6',
               },
             ]}
             isLoading={false}

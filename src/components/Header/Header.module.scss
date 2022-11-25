@@ -11,7 +11,7 @@
 }
 
 .logo {
-  background-color: black;
+  background-color: teal;
   color: #fff;
   font-weight: 700;
   line-height: 35px;
@@ -22,13 +22,44 @@
   text-decoration: none;
 
   &:hover {
-    background-color: teal;
+    background-color: black;
   }
 }
 
 .buttons {
   button {
     margin-left: 10px;
+  }
+
+  .butSign {
+    background-color: teal;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+    cursor: pointer;
+  }
+  .butLogin {
+    background-color: white;
+    border: 1px solid teal;
+    border-radius: 5px;
+    padding: 10px;
+    color: teal;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.15px;
+  }
+  .butLogout {
+    background-color: #c62828;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.15px;
   }
 
   a {
