@@ -45,10 +45,10 @@ export const Home = () => {
                       ? `${process.env.REACT_APP_API_URL}${one.imageUrl}`
                       : ''
                   }
-                  user={one.user}
+                  user={one?.user}
                   createdAt={one.createdAt}
                   viewsCount={one.viewsCount}
-                  isEditable={userData?._id === one.user._id}
+                  isEditable={userData?._id === one.user?._id}
                 />
               ))}
         </Grid>
