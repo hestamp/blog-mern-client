@@ -10,7 +10,7 @@ import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined'
 import styles from './Post.module.scss'
 import { UserInfo } from '../UserInfo'
 import { PostSkeleton } from './Skeleton'
-import { style } from '@mui/system'
+
 import { fetchRemovePost } from '../../redux/slices/posts'
 
 export const Post = ({

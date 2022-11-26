@@ -43,7 +43,7 @@ export const FullPost = () => {
             : ''
         }
         user={data.user}
-        createdAt={data.createdAt}
+        createdAt={data.createdAt.split('T')[0].split('-').reverse().join('-')}
         viewsCount={data.viewsCount}
         isFullPost
         isEditable

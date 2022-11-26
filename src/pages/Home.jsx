@@ -33,6 +33,10 @@ export const Home = () => {
         <Tab label="Popular" />
       </Tabs> */}
 
+      <div className={styles.butLast}>
+        <h2 style={{ margin: 0 }}>Last Posts</h2>
+      </div>
+
       {userData?.write && (
         <div className={styles.butCreate}>
           <Link to="/create">
