@@ -12,6 +12,14 @@
   }
 }
 
+.heading {
+  display: flex;
+  justify-content: center;
+  h3 {
+    margin: 0 0 15px;
+  }
+}
+
 .image {
   width: 100%;
 }
@@ -34,7 +42,9 @@
     }
   }
 }
-
+.uploadMe {
+  margin-right: 10px;
+}
 .buttons {
   display: flex;
 

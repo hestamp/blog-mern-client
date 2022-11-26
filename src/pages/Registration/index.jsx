@@ -32,7 +32,7 @@ export const Registration = () => {
     const data = await dispatch(fetchRegister(values))
 
     if (!data.payload) {
-      return alert('Cant register')
+      return alert('Error, try again')
     }
     if ('token' in data.payload) {
       window.localStorage.setItem('token', data.payload.token)
@@ -54,7 +54,9 @@ export const Registration = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           error={Boolean(errors.fullName?.message)}
-          helperText={errors.fullName?.message}
+          helperText={
+            errors.message ? errors.fullName?.message : 'Enter full name'
+          }
           {...register('fullName', { required: 'Set full name' })}
           className={styles.field}
           label="Full Name"
@@ -63,7 +65,9 @@ export const Registration = () => {
         <TextField
           error={Boolean(errors.email?.message)}
           type="email"
-          helperText={errors.email?.message}
+          helperText={
+            errors.message ? errors.email?.message : 'Enter valid email'
+          }
           {...register('email', { required: 'Set your email' })}
           className={styles.field}
           label="E-Mail"

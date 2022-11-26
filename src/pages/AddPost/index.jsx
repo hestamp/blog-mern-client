@@ -94,62 +94,68 @@ export const AddPost = () => {
   }
 
   return (
-    <Paper style={{ padding: 30 }}>
-      <Button
-        onClick={() => inputFileRef.current.click()}
-        variant="outlined"
-        size="large"
-      >
-        Upload preview
-      </Button>
-      <input
-        ref={inputFileRef}
-        type="file"
-        onChange={handleChangeFile}
-        hidden
-      />
-      {imageUrl && (
-        <>
-          <Button
-            variant="contained"
-            color="error"
-            onClick={onClickRemoveImage}
-          >
-            Delete
-          </Button>
-          <img
-            className={styles.image}
-            src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
-            alt="Uploaded"
-          />
-        </>
-      )}
-
-      <br />
-      <br />
-      <TextField
-        classes={{ root: styles.title }}
-        variant="standard"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Heading..."
-        fullWidth
-      />
-
-      <SimpleMDE
-        className={styles.editor}
-        value={text}
-        onChange={onChange}
-        options={options}
-      />
-      <div className={styles.buttons}>
-        <Button onClick={onSubmit} size="large" variant="contained">
-          {isEditing ? 'Save' : 'Publish'}
-        </Button>
-        <a href="/">
-          <Button size="large">Cancel</Button>
-        </a>
+    <>
+      <div className={styles.heading}>
+        <h3>Create Post</h3>
       </div>
-    </Paper>
+      <Paper style={{ padding: 30 }}>
+        <Button
+          className={styles.uploadMe}
+          onClick={() => inputFileRef.current.click()}
+          variant="outlined"
+          size="large"
+        >
+          Upload preview
+        </Button>
+        <input
+          ref={inputFileRef}
+          type="file"
+          onChange={handleChangeFile}
+          hidden
+        />
+        {imageUrl && (
+          <>
+            <Button
+              variant="contained"
+              color="error"
+              onClick={onClickRemoveImage}
+            >
+              Delete
+            </Button>
+            <img
+              className={styles.image}
+              src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
+              alt="Uploaded"
+            />
+          </>
+        )}
+
+        <br />
+        <br />
+        <TextField
+          classes={{ root: styles.title }}
+          variant="standard"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Heading..."
+          fullWidth
+        />
+
+        <SimpleMDE
+          className={styles.editor}
+          value={text}
+          onChange={onChange}
+          options={options}
+        />
+        <div className={styles.buttons}>
+          <Button onClick={onSubmit} size="large" variant="contained">
+            {isEditing ? 'Save' : 'Publish'}
+          </Button>
+          <a href="/">
+            <Button size="large">Cancel</Button>
+          </a>
+        </div>
+      </Paper>
+    </>
   )
 }

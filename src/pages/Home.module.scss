@@ -1,0 +1,21 @@
+.butCreate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding-bottom: 30px;
+}
+
+.butSign {
+  background-color: teal;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 128, 128, 0.795);
+  }
+}

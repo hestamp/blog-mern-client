@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Post } from '../components/Post'
+import DeleteIcon from '@mui/icons-material/Clear'
+import EditIcon from '@mui/icons-material/Edit'
 import ReactMarkdown from 'react-markdown'
 import axios from '../axios'
 // import { Index } from '../components/AddComment'
@@ -45,6 +47,7 @@ export const FullPost = () => {
         createdAt={data.createdAt}
         viewsCount={data.viewsCount}
         isFullPost
+        isEditable
       >
         <ReactMarkdown children={data.text} />
       </Post>

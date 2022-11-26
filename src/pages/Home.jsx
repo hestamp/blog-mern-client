@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 // import Tabs from '@mui/material/Tabs'
 // import Tab from '@mui/material/Tab'
 import Grid from '@mui/material/Grid'
-
+import { Link } from 'react-router-dom'
 import { Post } from '../components/Post'
 // import { TagsBlock } from '../components/TagsBlock'
 // import { CommentsBlock } from '../components/CommentsBlock'
 import { fetchPosts } from '../redux/slices/posts'
+import styles from './Home.module.scss'
 
 export const Home = () => {
   const dispatch = useDispatch()
@@ -31,6 +32,15 @@ export const Home = () => {
         <Tab label="New" />
         <Tab label="Popular" />
       </Tabs> */}
+
+      {userData?.write && (
+        <div className={styles.butCreate}>
+          <Link to="/create">
+            <button className={styles.butSign}>Create Post</button>
+          </Link>
+        </div>
+      )}
+
       <Grid container spacing={4}>
         <Grid xs={12} item>
           {isPostLoading
