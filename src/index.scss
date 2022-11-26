@@ -3,5 +3,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Roboto';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F5F5F5 !important;
+  background-color: #f5f5f5 !important;
+}
+
+.wrapper {
+  min-height: auto;
+  padding: 50px;
 }

@@ -56,12 +56,17 @@ export const Home = () => {
                       : ''
                   }
                   user={one?.user || 'noUser'}
-                  createdAt={one.createdAt}
+                  createdAt={one.createdAt
+                    .split('T')[0]
+                    .split('-')
+                    .reverse()
+                    .join('-')}
                   viewsCount={one.viewsCount}
                   isEditable={userData?._id === one.user?._id}
                 />
               ))}
         </Grid>
+        <div className={styles.empty}></div>
         {/* <Grid xs={4} item>
           <TagsBlock
             items={['1', '2', '3']}

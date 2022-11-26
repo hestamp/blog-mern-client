@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import CssBaseline from '@mui/material/CssBaseline'
 
-import './index.scss'
+import style from './index.scss'
 import { ThemeProvider } from '@mui/material'
 import { theme } from './theme'
 import { store } from './redux/store'
@@ -18,7 +18,7 @@ root.render(
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <Router>
-          <App />
+          <App className={style.wrapper} />
         </Router>
       </Provider>
     </ThemeProvider>

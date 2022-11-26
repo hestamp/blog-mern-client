@@ -31,4 +31,9 @@
   justify-content: center;
   margin-bottom: 20px;
   cursor: pointer;
+  .avatarLog {
+    width: 100px;
+    border-radius: 100%;
+    border: 2px solid gray;
+  }
 }

@@ -1,26 +1,32 @@
 import React, { useEffect, useState } from 'react'
-import Typography from '@mui/material/Typography'
-import axios from '../../axios'
-import TextField from '@mui/material/TextField'
-import Paper from '@mui/material/Paper'
-import styles from './Profile.module.scss'
-import { Avatar } from '@mui/material'
-
 import { selectIsAuth } from '../../redux/slices/auth'
 import { useSelector } from 'react-redux'
+import axios from '../../axios'
+
+import styles from './Profile.module.scss'
+
+import Typography from '@mui/material/Typography'
+import TextField from '@mui/material/TextField'
+import Paper from '@mui/material/Paper'
+import { Avatar } from '@mui/material'
+
 const Profile = () => {
   const isAuth = useSelector(selectIsAuth)
   const [fullName, setFullName] = useState('')
+  const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
 
   useEffect(() => {
-    axios
-      .get('/auth/me')
-      .then(({ data }) => {
-        setFullName(data.fullName)
-        setEmail(data.email)
-      })
-      .catch((error) => console.log(error))
+    if (isAuth) {
+      axios
+        .get('/auth/me')
+        .then(({ data }) => {
+          setFullName(data.fullName)
+          setEmail(data.email)
+          setAvatar(data?.avatarUrl)
+        })
+        .catch((error) => console.log(error))
+    }
   }, [])
 
   const handleSubmit = () => {}
@@ -32,12 +38,21 @@ const Profile = () => {
 
       <form onSubmit={handleSubmit}>
         <div className={styles.avatar}>
-          <Avatar sx={{ width: 100, height: 100 }} />
+          {avatar ? (
+            <img
+              className={styles.avatarLog}
+              src={avatar || '/noavatar.png'}
+              alt={fullName}
+            />
+          ) : (
+            <Avatar sx={{ width: 100, height: 100 }} />
+          )}
         </div>
         <TextField
           className={styles.field}
           label="Full Name"
           value={fullName}
+          onChange={(e) => setFullName(e.target.value)}
           type="text"
           fullWidth
         />
