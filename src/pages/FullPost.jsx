@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Post } from '../components/Post'
-
+import styles from './FullPost.module.scss'
 import ReactMarkdown from 'react-markdown'
 import axios from '../axios'
 // import { Index } from '../components/AddComment'
@@ -30,7 +30,12 @@ export const FullPost = () => {
   }, [])
 
   if (isLoading) {
-    return <Post isLoading={isLoading} isFullPost />
+    return (
+      <>
+        <Post isLoading={isLoading} isFullPost />
+        <div className={styles.empty}></div>
+      </>
+    )
   }
   return (
     <>

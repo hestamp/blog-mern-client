@@ -71,7 +71,7 @@ export const Home = () => {
                 />
               ))}
         </Grid>
-        <div className={styles.empty}></div>
+
         {/* <Grid xs={4} item>
           <TagsBlock
             items={['1', '2', '3']}

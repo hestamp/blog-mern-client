@@ -12,76 +12,76 @@ import { Avatar } from '@mui/material'
 
 const Profile = () => {
   const isAuth = useSelector(selectIsAuth)
+
+  const userData = useSelector((state) => state.auth.data)
   const [fullName, setFullName] = useState('')
   const [avatar, setAvatar] = useState('')
   const [email, setEmail] = useState('')
 
   useEffect(() => {
     if (isAuth) {
-      axios
-        .get('/auth/me')
-        .then(({ data }) => {
-          setFullName(data.fullName)
-          setEmail(data.email)
-          setAvatar(data?.avatarUrl)
-        })
-        .catch((error) => console.log(error))
+      setFullName(userData.fullName)
+      setEmail(userData.email)
+      setAvatar(userData?.avatarUrl)
     }
   }, [])
 
   const handleSubmit = () => {}
   return (
-    <Paper classes={{ root: styles.root }}>
-      <Typography classes={{ root: styles.title }} variant="h5">
-        Profile
-      </Typography>
+    <>
+      <Paper classes={{ root: styles.root }}>
+        <Typography classes={{ root: styles.title }} variant="h5">
+          Profile
+        </Typography>
 
-      <form onSubmit={handleSubmit}>
-        <div className={styles.avatar}>
-          {avatar ? (
-            <img
-              className={styles.avatarLog}
-              src={avatar || '/noavatar.png'}
-              alt={fullName}
-            />
-          ) : (
-            <Avatar sx={{ width: 100, height: 100 }} />
-          )}
-        </div>
-        <TextField
-          className={styles.field}
-          label="Full Name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          type="text"
-          fullWidth
-        />
-        <TextField
-          className={styles.field}
-          label="E-Mail"
-          value={email}
-          helperText="Text Administrator to change"
-          type="email"
-          disabled
-          fullWidth
-        />
-        <TextField
-          type="password"
-          className={styles.field}
-          label="Password"
-          fullWidth
-        />
-        <TextField
-          type="password"
-          className={styles.field}
-          label="Repeat Password"
-          fullWidth
-        />
-        <button type="submit" className={styles.butLogin}>
-          Save
-        </button>
-      </form>
-    </Paper>
+        <form onSubmit={handleSubmit}>
+          <div className={styles.avatar}>
+            {avatar ? (
+              <img
+                className={styles.avatarLog}
+                src={avatar || '/noavatar.png'}
+                alt={fullName}
+              />
+            ) : (
+              <Avatar sx={{ width: 100, height: 100 }} />
+            )}
+          </div>
+          <TextField
+            className={styles.field}
+            label="Full Name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            type="text"
+            fullWidth
+          />
+          <TextField
+            className={styles.field}
+            label="E-Mail"
+            value={email}
+            helperText="Text Administrator to change"
+            type="email"
+            disabled
+            fullWidth
+          />
+          <TextField
+            type="password"
+            className={styles.field}
+            label="Password"
+            fullWidth
+          />
+          <TextField
+            type="password"
+            className={styles.field}
+            label="Repeat Password"
+            fullWidth
+          />
+          <button type="submit" className={styles.butLogin}>
+            Save
+          </button>
+        </form>
+      </Paper>
+      <div className={styles.empty}></div>
+    </>
   )
 }
 
