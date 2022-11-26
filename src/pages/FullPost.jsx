@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Post } from '../components/Post'
 import styles from './FullPost.module.scss'
+import { useSelector } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import axios from '../axios'
 // import { Index } from '../components/AddComment'
@@ -13,6 +14,8 @@ export const FullPost = () => {
   const [data, setData] = useState()
   const [isLoading, setIsLoading] = useState(true)
   const { id } = useParams()
+
+  const userData = useSelector((state) => state.auth.data)
 
   useEffect(() => {
     axios
@@ -51,7 +54,7 @@ export const FullPost = () => {
         createdAt={data.createdAt.split('T')[0].split('-').reverse().join('-')}
         viewsCount={data.viewsCount}
         isFullPost
-        isEditable
+        isEditable={userData?._id === data.user?._id}
       >
         <ReactMarkdown children={data.text} />
       </Post>
