@@ -45,7 +45,7 @@ export const Footer = () => {
             alt="Earth Volunteers"
             href="https://earthvolunteers.org/"
           >
-            <img className={styles.avatar3} src="/earTh.png" alt="user" />
+            <img className={styles.avatar} src="/earTh.png" alt="user" />
           </a>
         </div>
 

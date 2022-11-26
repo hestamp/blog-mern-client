@@ -156,6 +156,7 @@ export const AddPost = () => {
           </a>
         </div>
       </Paper>
+      <div className={styles.empty}></div>
     </>
   )
 }
