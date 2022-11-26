@@ -99,14 +99,16 @@ export const AddPost = () => {
         <h3>Create Post</h3>
       </div>
       <Paper style={{ padding: 30 }}>
-        <Button
-          className={styles.uploadMe}
-          onClick={() => inputFileRef.current.click()}
-          variant="outlined"
-          size="large"
-        >
-          Upload preview
-        </Button>
+        <div className={styles.buttons}>
+          <Button
+            className={styles.uploadMe}
+            onClick={() => inputFileRef.current.click()}
+            variant="outlined"
+            size="large"
+          >
+            Upload preview
+          </Button>
+        </div>
         <input
           ref={inputFileRef}
           type="file"
@@ -115,18 +117,22 @@ export const AddPost = () => {
         />
         {imageUrl && (
           <>
-            <Button
-              variant="contained"
-              color="error"
-              onClick={onClickRemoveImage}
-            >
-              Delete
-            </Button>
-            <img
-              className={styles.image}
-              src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
-              alt="Uploaded"
-            />
+            <div className={styles.buttons}>
+              <img
+                className={styles.image}
+                src={`${process.env.REACT_APP_API_URL}${imageUrl}`}
+                alt="Uploaded"
+              />
+            </div>
+            <div className={styles.buttons}>
+              <Button
+                variant="contained"
+                color="error"
+                onClick={onClickRemoveImage}
+              >
+                Delete
+              </Button>
+            </div>
           </>
         )}
 

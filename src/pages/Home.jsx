@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { MdCreate } from 'react-icons/md'
 
 import { useDispatch, useSelector } from 'react-redux'
 // import Tabs from '@mui/material/Tabs'
@@ -40,7 +41,7 @@ export const Home = () => {
       {userData?.write && (
         <div className={styles.butCreate}>
           <Link to="/create">
-            <button className={styles.butSign}>Create Post</button>
+            <MdCreate className={styles.createIcon} />
           </Link>
         </div>
       )}

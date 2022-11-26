@@ -22,6 +22,7 @@
 
 .image {
   width: 100%;
+  max-width: 700px;
 }
 
 .tags {
@@ -29,7 +30,7 @@
 }
 
 .editor {
-  margin: 30px -30px;
+  margin: 30px -20px;
 
   :global {
     .cm-s-easymde {
@@ -47,12 +48,13 @@
 }
 .buttons {
   display: flex;
+  justify-content: center;
 
   button {
     margin-right: 15px;
   }
 }
 .empty {
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   width: 100%;
 }

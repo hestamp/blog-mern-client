@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import clsx from 'clsx'
 import IconButton from '@mui/material/IconButton'
@@ -33,6 +33,7 @@ export const Post = ({
   const onClickRemove = () => {
     if (window.confirm('Are you sure you want to remove this post?')) {
       dispatch(fetchRemovePost(id))
+      return <Navigate to="/" />
     }
   }
 

@@ -58,10 +58,10 @@
   }
   .avatar {
     width: 33px;
-    border: 2px solid rgba(0, 128, 128, 0.719);
+    border: 2px solid lightgray;
     cursor: pointer;
     &:hover {
-      border: 2px solid teal;
+      border: 2px solid gray;
     }
     border-radius: 100%;
     align-self: center;
