@@ -1,8 +1,12 @@
+.groot {
+  display: flex;
+  box-sizing: border-box;
+}
 .root {
   max-width: 400px;
   padding: 20px;
   border: 1px solid #dedede;
-  margin: 50px auto;
+  margin: 13vh auto;
 }
 
 .field {
@@ -16,7 +20,7 @@
 }
 
 .butLogin {
-  background-color: teal;
+  background-color: gray;
   border: 1px solid white;
   width: 100%;
   border-radius: 5px;
@@ -36,9 +40,4 @@
     border-radius: 100%;
     border: 2px solid lightgray;
   }
-}
-
-.empty {
-  margin-bottom: 200px;
-  width: 100%;
 }

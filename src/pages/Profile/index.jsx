@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { selectIsAuth } from '../../redux/slices/auth'
 import { useSelector } from 'react-redux'
-import axios from '../../axios'
 
 import styles from './Profile.module.scss'
 
 import Typography from '@mui/material/Typography'
 import TextField from '@mui/material/TextField'
 import Paper from '@mui/material/Paper'
-import { Avatar } from '@mui/material'
 
 const Profile = () => {
   const isAuth = useSelector(selectIsAuth)
@@ -28,7 +26,7 @@ const Profile = () => {
 
   const handleSubmit = () => {}
   return (
-    <>
+    <div classes={{ root: styles.groot }}>
       <Paper classes={{ root: styles.root }}>
         <Typography classes={{ root: styles.title }} variant="h5">
           Profile
@@ -43,13 +41,14 @@ const Profile = () => {
                 alt={fullName}
               />
             ) : (
-              <Avatar sx={{ width: 100, height: 100 }} />
+              <img style={{ width: 100, height: 100 }} src="noavatar.png" />
             )}
           </div>
           <TextField
             className={styles.field}
             label="Full Name"
             value={fullName}
+            disabled
             onChange={(e) => setFullName(e.target.value)}
             type="text"
             fullWidth
@@ -65,23 +64,24 @@ const Profile = () => {
           />
           <TextField
             type="password"
+            disabled
             className={styles.field}
             label="Password"
             fullWidth
           />
           <TextField
             type="password"
+            disabled
             className={styles.field}
             label="Repeat Password"
             fullWidth
           />
-          <button type="submit" className={styles.butLogin}>
+          <button disabled={true} type="submit" className={styles.butLogin}>
             Save
           </button>
         </form>
       </Paper>
-      <div className={styles.empty}></div>
-    </>
+    </div>
   )
 }
 

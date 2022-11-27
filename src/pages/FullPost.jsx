@@ -7,8 +7,6 @@ import styles from './FullPost.module.scss'
 import { useSelector } from 'react-redux'
 import ReactMarkdown from 'react-markdown'
 import axios from '../axios'
-// import { Index } from '../components/AddComment'
-// import { CommentsBlock } from '../components/CommentsBlock'
 
 export const FullPost = () => {
   const [data, setData] = useState()
@@ -16,20 +14,24 @@ export const FullPost = () => {
   const { id } = useParams()
 
   const userData = useSelector((state) => state.auth.data)
+  const { posts } = useSelector((state) => state.posts)
 
   useEffect(() => {
-    axios
-      .get(`/posts/${id}`)
-      .then((res) => {
-        setData(res.data)
-      })
-      .catch((error) => {
-        console.warn(error)
-        alert(`Error! Can't get post!`)
-      })
-      .finally(() => {
-        setIsLoading(false)
-      })
+    if (posts.length) {
+    } else {
+      axios
+        .get(`/posts/${id}`)
+        .then((res) => {
+          setData(res.data)
+        })
+        .catch((error) => {
+          console.warn(error)
+          alert(`Error! Can't get post!`)
+        })
+        .finally(() => {
+          setIsLoading(false)
+        })
+    }
   }, [])
 
   if (isLoading) {

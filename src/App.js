@@ -11,7 +11,7 @@ import { Footer } from './components/Footer'
 
 function App() {
   const dispatch = useDispatch()
-  const isAuth = useSelector(selectIsAuth)
+
   useEffect(() => {
     dispatch(fetchAuthMe())
   }, [])
